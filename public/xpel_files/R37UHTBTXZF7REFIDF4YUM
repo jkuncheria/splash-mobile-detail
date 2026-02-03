@@ -1,0 +1,538 @@
+(function () {
+  var scheme = (("https:" == document.location.protocol) ? "https" : "http");
+  var adnxs_domain = 'secure.adnxs.com';
+  var aol_domain = 'secure.leadback.advertising.com';
+  window.adroll_seg_eid = "K43CIE6BFBBLBIZGBU7L7R";
+  window.adroll_sendrolling_cross_device = false;
+  window.adroll_form_fields = {};
+  window.adroll_third_party_forms = {};
+  window.adroll_third_party_detected = {};
+  window.adroll_snippet_errors = [];
+  if (typeof __adroll._form_attach != 'undefined') {
+    __adroll._form_attach();
+  }
+  if (typeof __adroll._form_tp_attach != 'undefined') {
+    __adroll._form_tp_attach();
+  }
+  window.adroll_rule_type = "p";
+  var rule = ["*", "*"];
+  if (scheme=='http') { adnxs_domain = 'ib.adnxs.com'; aol_domain = 'leadback.advertising.com';}
+  var el = document.createElement("div");
+  el.style["width"] = "1px";
+  el.style["height"] = "1px";
+  el.style["display"] = "inline";
+  el.style["position"] = "absolute";
+  var content = '';
+  var rollcrawl_opts = {
+      "regexp": null,
+      "blacklist_regexp": null,
+      "blocklist_regexp": null,
+      "regexp_group": null,
+      "product_group_regexp": null,
+      "product_group_group": null
+  };
+
+  if (__adroll.consent_allowed(__adroll.consent_networks.facebook)) {
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+      document,'script','//connect.facebook.net/en_US/fbevents.js');
+  }
+
+  try {
+      try {
+          
+(function() {
+var rtb = document.createElement("div");
+rtb.style["width"] = "1px";
+rtb.style["height"] = "1px";
+rtb.style["display"] = "inline";
+rtb.style["position"] = "absolute";
+rtb.innerHTML = ["/cm/b/out?advertisable=QELCQLFEVBELNFB7FB5MQF","/cm/bombora/out?advertisable=QELCQLFEVBELNFB7FB5MQF","/cm/experian/out?advertisable=QELCQLFEVBELNFB7FB5MQF","/cm/eyeota/out?advertisable=QELCQLFEVBELNFB7FB5MQF","/cm/g/out?advertisable=QELCQLFEVBELNFB7FB5MQF","/cm/index/out?advertisable=QELCQLFEVBELNFB7FB5MQF","/cm/l/out?advertisable=QELCQLFEVBELNFB7FB5MQF","/cm/n/out?advertisable=QELCQLFEVBELNFB7FB5MQF","/cm/o/out?advertisable=QELCQLFEVBELNFB7FB5MQF","/cm/outbrain/out?advertisable=QELCQLFEVBELNFB7FB5MQF","/cm/pubmatic/out?advertisable=QELCQLFEVBELNFB7FB5MQF","/cm/taboola/out?advertisable=QELCQLFEVBELNFB7FB5MQF","/cm/triplelift/out?advertisable=QELCQLFEVBELNFB7FB5MQF","/cm/x/out?advertisable=QELCQLFEVBELNFB7FB5MQF"].reduce(function (acc, cmURL) {
+    return acc + '<img height="1" width="1" style="border-style:none;" alt="" src="' + __adroll._srv(cmURL) + '"/>';
+}, '');
+__adroll._head().appendChild(rtb);
+})();
+
+      } catch(e) {
+          window.adroll_snippet_errors['maya_snippet'] = e;
+      }
+      try {
+          (function () {
+
+    function getInputValueOrNull(input) {
+        return input !== null ? input.value: null;
+    }
+
+    function getInputContentOrNull(input) {
+        return input !== null ? input.content: null;
+    }
+
+    function isValidNumber(value) {
+        return value !== "" && value !== null && Number(value).toString() !== "NaN";
+    }
+
+    function priceStringToFloat(value) {
+        // Converts a price-like string to float.
+        var price = value.replace(',', '.').split('.');
+        // If we have only 1 element in the price, it means that we had no separators on it
+        // let's just return it.
+        if (price.length === 1) {
+            return price[0];
+        }
+        var cents = price.pop(); // The last element is the cents.
+        return price.join('') + '.' + cents;
+    }
+
+    function removeSegmentNameFromPayload(payload) {
+        var new_payload = JSON.parse(JSON.stringify(payload));
+        delete new_payload.segment_name;
+        return new_payload;
+    }
+
+    function checkHomePage() {
+        if (window.location.pathname === '/') {
+            console.log('AdRoll track event: homeView');
+            adroll.track('homeView');
+        }
+    }
+
+    function checkProductPage() {
+        // check if we are into a product page and then track it correctly
+
+        function getProductPageId() {
+            // Get the product id of the page by looking into the "Add to Cart"
+            // form and then getting the prodict_id input value.
+            var cartForms = document.querySelectorAll('form');
+            var product_id;
+            for (var i=0;i<cartForms.length;i++) {
+                product_id = cartForms[i].querySelector('input[type="hidden"][name="product_id"]');
+                if (product_id !== null) {
+                    return product_id.value;
+                }
+            }
+        }
+
+        function getProductPagePrice() {
+            // Get the current product page price by looking into the <meta> tag
+            var price = getInputContentOrNull(
+                          document.querySelector('meta[property="product:price:amount"]'));
+            if (price === null) {
+                var price = getInputContentOrNull(
+                              document.querySelector('meta[itemprop="price"]'));
+            }
+            return price;
+        }
+
+        function isProductPage() {
+            // Check if it's a product page by looking into the <meta> tag
+            var pageType = getInputContentOrNull(
+                             document.querySelector('meta[property="og:type"]'));
+            return pageType === 'product';
+        }
+
+        function setUpAjaxListenerAddToCartEvent() {
+            var trackingDone = false;
+
+            function isAddToCartUrl(url) {
+                // Sometimes the url for adding to cart is /cart.php and sometimes it is /remote/v1/cart/add.
+                return url.indexOf('cart.php') !== -1 || url.indexOf('cart/add') !== -1;
+            }
+
+            function trackAddToCart(productId, qty) {
+                if (trackingDone) {
+                    return;
+                }
+                var payload = {"segment_name": "bigcommerce_added_product_to_cart",
+                               "products":[{"product_id": productId,
+                                            "quantity": qty}]};
+
+                console.log('AdRoll track event: pageView', payload);
+                adroll.track("pageView", payload);
+
+                payload = removeSegmentNameFromPayload(payload);
+                console.log('AdRoll track event: addToCart', payload);
+                adroll.track('addToCart', payload);
+                trackingDone = true;
+            }
+
+            // Creates an event handler for when the user submits "Add to Cart" form
+            var addToCartForms = document.querySelectorAll('form[action*="cart.php"]');
+            for (var index=0;index<addToCartForms.length;index++) {
+                console.log('Listening to "Add to cart" events...');
+                addToCartForms[index].addEventListener('submit', function(evt){
+                    var cartProductId = getInputValueOrNull(
+                                          this.querySelector('[name="product_id"]'));
+                    var cartQty = getInputValueOrNull(
+                                    this.querySelector('[name*="qty"]'));
+
+                    // we need to have at least the product_id in order to track this event
+                    if (cartProductId !== null) {
+                        trackAddToCart(cartProductId, cartQty);
+                    }
+
+               });
+            }
+
+            if (typeof XMLHttpRequest.prototype.realOpen === 'undefined') {
+                // We also need to listen on Ajax request for adding to cart
+		XMLHttpRequest.prototype.realOpen = XMLHttpRequest.prototype.open;
+                XMLHttpRequest.prototype.open = function() {
+                    this._url = arguments[1];
+                    this.realOpen.apply(this, arguments);
+                };
+                XMLHttpRequest.prototype.realSend = XMLHttpRequest.prototype.send;
+                XMLHttpRequest.prototype.send = function(value) {
+                    // we are only tracking the "Add to cart" event if the url of the ajax is
+                    // /cart.php and we have some data being passed to it
+                    try{
+                        if (this._url && isAddToCartUrl(this._url) && value) {
+                            // We handle both situations here, value as a FormData object
+                            // and form data as an encoded string.
+                            if (window.FormData && (value instanceof FormData) && typeof value.get !== 'undefined') {
+                                var cartProductId = value.get('product_id');
+                                var cartQty = value.get('qty[]');
+                                trackAddToCart(cartProductId, cartQty);
+                            }
+                            else if (typeof value === "string") {
+                                var cartProductId = /product_id=([0-9]*)/.exec(value);
+                                if (cartProductId) {
+                                    cartProductId = cartProductId[0];
+                                }
+                                var cartQty = /qty(.*)=([0-9]*)/.exec(value);
+                                if (cartQty) {
+                                    cartQty = /(.*)=([0-9]*)/.exec(cartQty[1]);
+                                    if (cartQty) {
+                                        cartQty = cartQty[2];
+                                    }
+                                }
+                                trackAddToCart(cartProductId, cartQty);
+                            }
+                            else {
+                                trackAddToCart();
+                            }
+                        }
+                    }catch(err) {
+                        console.log(err);
+                    }
+                    this.realSend(value);
+                }
+            }
+        }
+
+        // are we in a specific product page id?
+        if (isProductPage()) {
+            var productPageId = getProductPageId();
+            var productPagePrice = getProductPagePrice();
+
+            if (productPageId) {
+                var payload = {"segment_name": "bigcommerce_viewed_product",
+                               "products":[{"product_id": productPageId,
+                                            "price": productPagePrice}]};
+
+                console.log("AdRoll track event: pageView", payload);
+                adroll.track('pageView', payload);
+
+                payload = removeSegmentNameFromPayload(payload);
+                console.log("AdRoll track event: productView", payload);
+                adroll.track('productView', payload);
+
+                // since we are in a specific product page, let's set up the
+                // "Add to Cart" event handler.
+                setUpAjaxListenerAddToCartEvent();
+            }
+        }
+    }
+
+    function checkSearchPage() {
+        // If we are in a search results page, we track this
+        // passing the search query as well
+        if (window.location.pathname.indexOf('/search.php') !== -1) {
+          var urlParams = decodeURIComponent(window.location.search);
+          var search_term = /search_query=(.*)&/.exec(urlParams);
+          if (search_term !== null) {
+              var payload = {'search_term': search_term[1]}
+              console.log("AdRoll track event: pageView", payload);
+              adroll.track('pageView', payload);
+          }
+        }
+    }
+
+    function checkCheckoutPage() {
+        // If we are in a checkout page, we track this
+        if (window.location.pathname === '/checkout' || window.location.pathname === '/checkout.php') {
+            var payload = {'segment_name': 'bigcommerce_viewed_checkout'}
+            console.log("AdRoll track event: pageView", payload);
+            adroll.track('pageView', payload);
+            console.log("AdRoll track event: checkoutStart", {});
+            adroll.track('checkoutStart', {});
+        }
+    }
+
+    function checkOrderConfirmationPage() {
+        // If we are in an Order confirmation page, we track it
+        // also we try to get the order ID to pass as parameter
+        if (window.location.pathname.indexOf('/order-confirmation') !== -1 || window.location.pathname.indexOf('/finishorder.php') !== -1) {
+
+            function getOrderIdFromDocument() {
+                // Sometimes we can get the OrderId directly from a JSON
+                // on the document HTML.
+                var orderId = null;
+                var orderIdRegexes = [/orderId["'][ ]*:[ ]*([0-9]+)/i,
+                      /orderId["']?[ ]*[=:][ ]["']?([0-9]+)["']?/i,
+                      /order_id[ ]*[=:][ ]["']?([0-9]+)["']?/i,
+                      /oid=([0-9]+)/i];
+                for (var i=0; i<orderIdRegexes.length; i++) {
+                    orderId = orderIdRegexes[i].exec(document.documentElement.innerHTML);
+                    if(orderId !== null && isValidNumber(orderId[1])) {
+                        return orderId[1];
+                    }
+                }
+                return null;
+            }
+
+            function getOrderIdFromContactLink() {
+                // Sometimes we an get the orderId from the Contact us" link,
+                // eg. a href="mailto:eduardo@store.com?subject=Order 140"
+                var contactEmailLink = document.querySelector('a[href*="mailto:"]');
+                if(contactEmailLink !== null) {
+                    var orderId = /Order(.*)/.exec(decodeURIComponent(contactEmailLink.href));
+                    if (orderId !== null) {
+                        orderId = orderId[1];
+                        if (isValidNumber(orderId)) {
+                            return orderId;
+                        }
+                    }
+                }
+            }
+
+            function getOrderIdFromOrderDetailLink() {
+                // Sometimes we might have an order details link in the success screen.
+                // In this link we have something like: /account.php?action=view_order&order_id=109
+                var viewOrderLinks = document.querySelectorAll('a[href*="action=view_order"]');
+                for (var index =0; index < viewOrderLinks.length; index++) {
+                    var orderId = /order_id=(.*)/.exec(decodeURIComponent(viewOrderLinks[index].href));
+                    if (orderId !== null) {
+                        orderId = orderId[1];
+                        if (isValidNumber(orderId)) {
+                            return orderId;
+                        }
+                    }
+                }
+            }
+
+            function getOrderId() {
+                // Try to get the orderId using all the available logics
+                var orderId = null;
+                if (typeof window.bigcommerceCheckoutOrderId !== "undefined" && isValidNumber(window.adroll_order_id)) {
+                    orderId = window.adroll_order_id;
+                } else if (typeof window.bigcommerceCheckoutOrderId !== "undefined" && isValidNumber(window.bigcommerceCheckoutOrderId)) {
+                    orderId = window.bigcommerceCheckoutOrderId; //legacy for manual
+                }
+
+                if (!orderId) {
+                    orderId = getOrderIdFromDocument();
+                    if (!orderId) {
+                        orderId = getOrderIdFromContactLink();
+                        if (!orderId) {
+                            orderId = getOrderIdFromOrderDetailLink();
+                        }
+                    }
+                }
+                return orderId;
+            }
+
+            var orderId = getOrderId();
+            var payload = {"segment_name": "bigcommerce_order_received",
+                           "conversion_value": null};
+            if(orderId) {
+                payload.order_id = orderId;
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    // The response is ready to be parsed.
+                    if (this.readyState == 4 && this.status == 200) {
+                        var orderObj;
+                        var products = [];
+                        try {
+                            orderObj = JSON.parse(xhttp.responseText);
+                            for (var itemType in orderObj.lineItems) {
+                                for (var index in orderObj.lineItems[itemType]) {
+                                    products.push({"product_id": String(orderObj.lineItems[itemType][index].productId.toString()),
+                                                   "price": String(orderObj.lineItems[itemType][index].salePrice),
+                                                   "quantity": String(orderObj.lineItems[itemType][index].quantity)});
+                                }
+                            }
+                        } catch(exc) {
+                           console.error(exc);
+                        }
+
+                        if (products.length) {
+                            payload.products = products;
+                        }
+
+                       if (orderObj) {
+                           if (typeof orderObj.orderAmountAsInteger !== "undefined") {
+                               var orderAmountStr = String(orderObj.orderAmountAsInteger / 100);
+                               if (orderAmountStr.indexOf('.') === -1) {
+                                   orderAmountStr = orderAmountStr + '.00';
+                               }
+                               payload.conversion_value = orderAmountStr;
+                           }
+
+                           if (orderObj.currency && orderObj.currency.code) {
+                               payload.currency = orderObj.currency.code;
+                           }
+
+                           var userIdentifyPayload = {'userId': orderObj.customerId};
+                           if (orderObj.billingAddress && orderObj.billingAddress.email) {
+                               userIdentifyPayload.email = orderObj.billingAddress.email;
+                           }
+                           console.log('AdRoll identify event', userIdentifyPayload);
+                           adroll.identify(userIdentifyPayload);
+
+                       }
+
+                        console.log('AdRoll track event: pageView', payload);
+                        adroll.track("pageView", payload);
+
+                        payload = removeSegmentNameFromPayload(payload);
+                        console.log('AdRoll track event: purchase', payload);
+                        adroll.track("purchase", payload);
+                    }
+                };
+                xhttp.open("GET", "/api/storefront/order/" + orderId, true);
+                xhttp.send();
+            } else {
+                console.log('Adroll: Not able to get the order ID.');
+                console.log('AdRoll track event: pageView', payload);
+                adroll.track("pageView", payload);
+            }
+        }
+    }
+
+    function setUpQuickAddToCartEvents() {
+        // sets up an event for every "Add to cart" buttons that can be on products
+        // quick add to cart is usually a link with ?action=add query parameter
+        var addToCArtButtons = document.querySelectorAll("a[href*='cart.php?action=add']");
+        for (var index=0;index<addToCArtButtons.length;index++) {
+            console.log('QuickAddToCart event being added');
+            addToCArtButtons[index].addEventListener("click", function(evt) {
+                var cartProductId = /product_id=(.*)/.exec(this.href);
+                if(cartProductId !== null && isValidNumber(cartProductId[1])) {
+                    cartProductId = cartProductId[1];
+                    var payload = {"segment_name": "bigcommerce_added_product_to_cart",
+                                   "products":[{"product_id": cartProductId}]};
+
+                    console.log('AdRoll track event: pageView', payload);
+                    adroll.track("pageView", payload);
+
+                    payload = removeSegmentNameFromPayload(payload);
+                    console.log('AdRoll track event: addToCart', payload);
+                    adroll.track('addToCart', payload);
+                  }
+            })
+          }
+    }
+
+    function checkCartViewPage() {
+        // if we are in a cart page "/cart.php", we track it
+        // we also try to get all the cart products by using a simple but consistent
+        // logic, looking for tables with products inside
+
+        function tableHasProducts(table) {
+            // we check if we have some product image inside the table to
+            // determine if this table has products inside
+            // eg. https://cdn3.bigcommerce.com/s-go9at/products/85/images/231/XZT-Switch__53358.1484612380.190.250.jpg?c=2
+            return table.querySelectorAll('img[src*="/products/"').length > 0;
+        }
+
+        if (window.location.pathname.indexOf('/cart.php') !== -1) {
+            // Get shopping cart items to send in the payload
+            //  we get it using bigcommerce's storefront cart API
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                // The response is ready to be parsed.
+                if (this.readyState == 4 && this.status == 200) {
+                    var cartObj;
+                    var products = [];
+                    try {
+                        cartObj = JSON.parse(xhttp.responseText);
+                        if (cartObj.length > 0) {
+                            cartObj = cartObj[0];
+                            for (var itemType in cartObj.lineItems) {
+                                for (var index in cartObj.lineItems[itemType]) {
+                                    products.push({"product_id": String(cartObj.lineItems[itemType][index].productId.toString()),
+                                                   "price": String(cartObj.lineItems[itemType][index].salePrice),
+                                                   "quantity": String(cartObj.lineItems[itemType][index].quantity)});
+                                }
+                            }
+                        }
+                    } catch(exc) {
+                       console.error(exc);
+                    }
+
+                   var payload = {"segment_name": "bigcommerce_viewed_cart"};
+                   if (products.length) {
+                       payload.products = products;
+                   }
+
+                   if (cartObj) {
+                       if (cartObj.cartAmount) {
+                           payload.cartValue = cartObj.cartAmount;
+                           payload.total = cartObj.cartAmount;
+                       }
+
+                       if (cartObj.currency && cartObj.currency.code) {
+                           payload.currency = cartObj.currency.code;
+                       }
+                   }
+
+                   console.log('AdRoll track event: pageView', payload);
+                   adroll.track("pageView", payload);
+
+                   payload = removeSegmentNameFromPayload(payload);
+                   console.log('AdRoll track event: cartView', payload);
+                   adroll.track('cartView', payload);
+
+                }
+            };
+            xhttp.open("GET", "/api/storefront/cart", true);
+            xhttp.send();
+        }
+    }
+
+    checkHomePage();
+    setUpQuickAddToCartEvents();
+    checkProductPage();
+    checkSearchPage();
+    checkOrderConfirmationPage();
+    checkCartViewPage();
+    checkCheckoutPage();
+})();
+
+
+      } catch(e) {
+          window.adroll_snippet_errors['bigcommerce-dco-client-javascript'] = e;
+      }
+  } catch(e) {}
+
+  __adroll.get_pid(rollcrawl_opts);
+
+  var r = Math.random()*10000000000000000;
+  content = content.replace(/\[ord\]/gi, r);
+  content = content.replace(/\[protocol\]/gi, scheme);
+  content = content.replace(/\[adnxs_domain\]/gi, adnxs_domain);
+  content = content.replace(/\[aol_domain\]/gi, aol_domain);
+  var adroll_tpc = __adroll._global('adroll_tpc');
+  if (adroll_tpc) {
+    var srv_parts = __adroll._srv().split('?');
+    var srv_host = srv_parts[0].substr(srv_parts[0].indexOf(':') + 1);
+    var srv_re = new RegExp(srv_host + '([^\?\"\'\>\#\S]+)\\?*', 'gi');
+    content = content.replace(srv_re, srv_host + '$1?' + srv_parts[1] + '&');
+  }
+  content = __adroll.replace_external_data(content);
+  el.innerHTML = content;
+  __adroll._head().appendChild(el);
+  if (typeof __adroll.set_pixel_cookie != 'undefined') {__adroll.set_pixel_cookie(adroll_adv_id, adroll_pix_id, "K43CIE6BFBBLBIZGBU7L7R");}
+}());
