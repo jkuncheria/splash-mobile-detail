@@ -7,16 +7,16 @@ const Services: React.FC = () => {
   const services = [
     {
       number: '01',
-      title: 'Paint Protection Film',
-      description: 'Self-healing clear film that protects your paint from rock chips, scratches, and road debris. Virtually invisible protection.',
+      title: 'Auto Detailing',
+      description: 'Professional interior and exterior detailing that restores your vehicle to showroom condition.',
       features: [
-        'Full front or full vehicle coverage',
-        'Self-healing technology',
-        'Up to 10-year warranty'
+        'Interior deep cleaning',
+        'Exterior wash and polish',
+        'Engine bay detailing'
       ],
-      cta: 'Protect your investment. Get a free quote.',
-      icon: <Shield className="w-8 h-8 text-blue-900" />,
-      link: '/paint-protection-film'
+      cta: 'Restore that new car feeling. Book now.',
+      icon: <Car className="w-8 h-8 text-blue-900" />,
+      link: '/auto-detailing'
     },
     {
       number: '02',
@@ -33,117 +33,104 @@ const Services: React.FC = () => {
     },
     {
       number: '03',
-      title: 'Window Tinting',
-      description: 'Premium ceramic and carbon window films that block heat and UV rays while enhancing privacy and style.',
+      title: 'Headlight Restoration',
+      description: 'Professional headlight restoration to remove yellowing, fog, and oxidation. Improve visibility and appearance.',
       features: [
-        'Up to 99% UV rejection',
-        'Superior heat rejection',
-        'Lifetime warranty films'
+        'Remove yellowing and haze',
+        'UV-resistant sealant',
+        'Improved night visibility'
       ],
-      cta: 'Beat the Arizona heat. Schedule today.',
-      icon: <Sun className="w-8 h-8 text-blue-900" />,
-      link: '/window-tinting'
+      cta: 'See clearly again. Book now.',
+      icon: <Eye className="w-8 h-8 text-blue-900" />,
+      link: '/headlight-restoration'
     },
     {
       number: '04',
-      title: 'Vehicle Wraps',
-      description: 'Transform your vehicle with a custom color change wrap. Choose from gloss, matte, satin, or specialty finishes.',
+      title: 'Gasoline Spill Cleanup',
+      description: 'Professional gasoline spill cleanup that safely removes fuel residue and eliminates dangerous odors.',
       features: [
-        'Full color change wraps',
-        'Partial wraps and accents',
-        'Commercial fleet wraps'
+        'Complete odor elimination',
+        'Safe residue removal',
+        'Interior restoration'
       ],
-      cta: 'Stand out from the crowd. Get started.',
-      icon: <Palette className="w-8 h-8 text-blue-900" />,
-      link: '/vehicle-wraps'
+      cta: 'Get your car fresh again. Book now.',
+      icon: <Droplets className="w-8 h-8 text-blue-900" />,
+      link: '/gasoline-spills'
     },
     {
       number: '05',
-      title: 'Auto Detailing',
-      description: 'Professional interior and exterior detailing that restores your vehicle to showroom condition.',
+      title: 'Vomit Removal',
+      description: 'Complete cleanup, sanitization, and deodorization after accidents. We eliminate the mess and the smell.',
       features: [
-        'Interior deep cleaning',
-        'Exterior wash and polish',
-        'Engine bay detailing'
+        'Deep sanitization',
+        'Odor elimination',
+        'Stain removal'
       ],
-      cta: 'Restore that new car feeling. Book now.',
-      icon: <Car className="w-8 h-8 text-blue-900" />,
-      link: '/auto-detailing'
+      cta: 'Accidents happen. We fix them.',
+      icon: <Shield className="w-8 h-8 text-blue-900" />,
+      link: '/vomit-removal'
     },
     {
       number: '06',
-      title: 'Interior Protection',
-      description: 'Ceramic coating for leather, fabric, and plastic surfaces. Protect against stains, UV damage, and wear.',
+      title: 'Sale Prep',
+      description: 'Get top dollar for your vehicle with professional sale prep detailing. Clean cars sell faster and for more.',
       features: [
-        'Leather ceramic coating',
-        'Fabric stain protection',
-        'Dashboard and trim coating'
+        'Complete detail package',
+        'Maximize sale price',
+        'Quick turnaround'
       ],
-      cta: 'Keep your interior pristine. Learn more.',
-      icon: <Droplets className="w-8 h-8 text-blue-900" />,
-      link: '/interior-protection'
+      cta: 'Sell for more. Book now.',
+      icon: <Circle className="w-8 h-8 text-blue-900" />,
+      link: '/sale-prep'
     },
     {
       number: '07',
-      title: 'Wheel & Caliper',
-      description: 'Ceramic coating for wheels and custom caliper painting. Easier cleaning and a custom look.',
+      title: 'Pet Cleanup',
+      description: 'Remove stubborn pet hair, eliminate odors, and treat stains. We love pets but not the mess they leave.',
       features: [
-        'Wheel ceramic coating',
-        'Custom caliper colors',
-        'Brake dust protection'
+        'Pet hair removal',
+        'Odor elimination',
+        'Stain treatment'
       ],
-      cta: 'Complete the look. Get a quote.',
-      icon: <Circle className="w-8 h-8 text-blue-900" />,
-      link: '/wheel-caliper'
-    },
-    {
-      number: '08',
-      title: 'Paint Correction',
-      description: 'Multi-stage polishing to remove swirls, scratches, and defects. Essential prep for ceramic coating.',
-      features: [
-        'Swirl and scratch removal',
-        'Water spot correction',
-        'Mirror-like finish'
-      ],
-      cta: 'Reveal your paint\'s true potential. Book now.',
+      cta: 'Love your pets, not the mess.',
       icon: <Eye className="w-8 h-8 text-blue-900" />,
-      link: '/paint-correction'
+      link: '/pet-cleanup'
     }
   ];
 
   const mainServices = [
     {
-      title: 'Paint Protection Film & Ceramic Coating',
-      description: 'The ultimate protection package for your vehicle. Combine PPF and ceramic coating for maximum defense.',
-      subDescription: 'PPF shields against physical damage while ceramic coating adds gloss, hydrophobic properties, and chemical resistance.',
+      title: 'Full Detail & Ceramic Coating Package',
+      description: 'The ultimate care package for your vehicle. Combine professional detailing with ceramic coating for maximum protection.',
+      subDescription: 'Deep cleaning restores your vehicle while ceramic coating adds long-lasting gloss and protection.',
       features: [
-        'Full front PPF coverage',
+        'Complete interior & exterior detail',
         'Full vehicle ceramic coating',
-        'Up to 10-year combined warranty'
+        'Multi-year protection'
       ],
       cta: 'Get a quote',
-      link: '/paint-protection-film'
+      link: '/ceramic-coatings'
     },
     {
-      title: 'Complete Vehicle Transformation',
-      description: 'Full vehicle wrap with window tint for a complete custom look and maximum comfort.',
-      subDescription: 'Transform your vehicle\'s appearance while staying cool with premium ceramic window tint.',
+      title: 'Interior Restoration Package',
+      description: 'Complete interior transformation with deep cleaning and ceramic protection.',
+      subDescription: 'Restore and protect your interior surfaces for years of easy maintenance.',
       features: [
-        'Full color change wrap',
-        'Ceramic window tint all around',
-        'Chrome delete options'
+        'Deep interior cleaning',
+        'Leather and fabric protection',
+        'Dashboard and trim coating'
       ],
-      cta: 'Start your transformation',
-      link: '/vehicle-wraps'
+      cta: 'Restore your interior',
+      link: '/interior-protection'
     }
   ];
 
   return (
     <>
       <SEO
-        title="Auto Detailing & Protection Services Denver | PPF, Ceramic, Tint, Wraps"
-        description="Complete auto protection services in Denver. Paint protection film, ceramic coatings, window tinting, vehicle wraps, detailing, and paint correction. Free quotes."
-        keywords="auto detailing Denver, PPF Denver, ceramic coating Denver, window tinting Denver, vehicle wraps Denver, paint correction Denver"
+        title="Auto Detailing & Protection Services Denver Metro | Ceramic Coating, Detailing"
+        description="Complete auto detailing and protection services in Denver Metro. Ceramic coatings, interior detailing, headlight restoration, paint correction. Free quotes."
+        keywords="auto detailing Denver, ceramic coating Denver, headlight restoration Denver, paint correction Denver, interior detailing Parker CO"
         canonical="https://example.com/services"
       />
       <section className="py-24 bg-white px-4 md:px-16">
@@ -157,7 +144,7 @@ const Services: React.FC = () => {
           </h1>
           <div className="w-20 h-1 bg-yellow-500 mx-auto mb-8"></div>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            From paint protection film and ceramic coatings to full vehicle wraps and professional detailing, we deliver showroom-quality results. Certified installers, premium products, and industry-leading warranties.
+            From ceramic coatings and professional detailing to headlight restoration and paint correction, we deliver showroom-quality results. Premium products and exceptional service.
           </p>
         </div>
 

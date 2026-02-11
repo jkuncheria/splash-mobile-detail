@@ -12,7 +12,7 @@ const AboutHome: React.FC = () => {
           <div className="order-2 lg:order-1">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <img 
-                src="/xpel_files/2020-Chevy-Corvette-C8-Full-Front-ULTIMATE-PLUS-PPF-4.jpg" 
+                src="/showroom2.png" 
                 alt="Professional Auto Detailing and Paint Protection Services in Denver, Colorado" 
                 className="w-full h-auto object-cover"
                 loading="lazy"
@@ -23,18 +23,18 @@ const AboutHome: React.FC = () => {
 
           {/* Right Side - Content */}
           <div className="order-1 lg:order-2">
-            <span className="font-bold tracking-wider text-sm uppercase" style={{ color: '#18AEE4' }}>ABOUT US</span>
+            <span className="font-bold tracking-wider text-sm uppercase" style={{ color: '#18AEE4' }}>CREATING SHOWROOM QUALITY DETAILS FOR MORE THAN 5 YEARS</span>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-3 mb-6 leading-tight">
-              We protect your vehicle with precision, quality, and care every time.
+              You Deserve A Car That Looks As Great As The Day You Bought It
             </h2>
             <p className="text-lg text-gray-700 mb-4 leading-relaxed">
-              We are Denver's trusted auto detailing and protection specialists. Our certified technicians deliver premium ceramic coatings, paint protection film, window tinting, and professional detailing services. We treat every vehicle like it's our own.
+              Your car doesn't have to be old to feel old. Just like you, your vehicle deserves the best. That's why we offer white-glove mobile detailing services in the Denver Metro area. So you can look and feel your best every time you buckle up.
             </p>
             
             <div className="bg-blue-50 rounded-xl p-6 mb-6">
-              <h3 className="font-bold mb-2" style={{ color: '#18AEE4' }}>What we do best</h3>
+              <h3 className="font-bold mb-2" style={{ color: '#18AEE4' }}>Taking Care Of Your Vehicle Has Never Been Easier</h3>
               <p className="text-gray-700 text-sm">
-                From paint protection film and ceramic coatings to full vehicle wraps and professional detailing, we deliver showroom-quality results. Certified installers, premium products, and industry-leading warranties.
+                Splash Mobile Detail offers a variety of detailing services to keep your car, truck, SUV, boat, or trailer looking like you just bought it. We service Denver, Arapahoe, Jefferson, Douglas, and Elbert Counties.
               </p>
             </div>
 

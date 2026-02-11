@@ -43,7 +43,7 @@ const Header: React.FC = () => {
       <div className="bg-gray-100 text-xs py-2 px-4 flex justify-center items-center border-b border-gray-200">
         <div className="text-center font-semibold" style={{ color: '#18AEE4' }}>
           <span className="mr-2">50% Off a Clay Treatment with Purchase of a Full Detail!</span>
-          <Link to="/contact" onClick={scrollToTop} className="underline hover:text-blue-700">Get Quote</Link>
+          <Link to="/contact" onClick={scrollToTop} className="underline hover:text-blue-700">Call Today</Link>
         </div>
       </div>
 
@@ -52,7 +52,7 @@ const Header: React.FC = () => {
         <div className="flex items-center justify-between md:grid md:grid-cols-3 md:items-center">
           
           {/* Mobile Contact Buttons (Left side on mobile) */}
-          <div className="flex items-center gap-2 md:hidden">
+          <div className="flex items-center gap-2 md:hidden w-24">
             <Link 
               to="/contact"
               onClick={scrollToTop}
@@ -80,7 +80,7 @@ const Header: React.FC = () => {
           </div>
 
           {/* Mobile Menu Toggle (Right side on mobile) */}
-          <div className="md:hidden">
+          <div className="md:hidden w-24 flex justify-end">
             <button 
               className="p-2 text-gray-600"
               onClick={() => setIsMenuOpen(!isMenuOpen)}

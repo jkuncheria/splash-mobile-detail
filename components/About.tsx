@@ -7,7 +7,7 @@ const About: React.FC = () => {
     {
       name: 'Eugene Chiarelli',
       role: 'Owner',
-      image: null,
+      image: '/who-we-are/eugene.jpg',
       bio: [
         'The concept of this business came directly from an entrepreneurship class I teach with some students!',
         'The workshop, called Path to Success, was designed to teach young adults (15–25) all the things their school can\'t and parents don\'t about business and life.',
@@ -18,7 +18,7 @@ const About: React.FC = () => {
     {
       name: 'Diego Saucedo Preciado',
       role: 'Lead Technician',
-      image: null,
+      image: '/who-we-are/Diego-1.jpg',
       bio: [
         'Diego is 23 years old and has been detailing cars since he was 16. He knew the very first time he did it: detailing cars is what he wanted to do with his life.',
         'Diego is from a very strong and tight-knit family. He\'s the most complete and skilled detailer that\'s ever worked at Splash. He\'s a solid family man, and a young man devoted to his sisters and his parents.',
@@ -28,7 +28,7 @@ const About: React.FC = () => {
     {
       name: 'Nicolas Toscano',
       role: 'Detail Technician',
-      image: null,
+      image: '/who-we-are/Nicolas-1.jpg',
       bio: [
         'Nico (as his friends and family call him) is just 26 years old and a native of Argentina. He\'s been in the United States since he was 17 and he\'s been detailing cars since 18.',
         'Nico was the full-time lead tech at Splash for over a year and continues to work part-time while he pursues his own career in ceramics and coatings.',
@@ -52,7 +52,7 @@ const About: React.FC = () => {
           <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12 text-white">
             <span className="text-yellow-400 font-bold tracking-wider text-sm uppercase">ABOUT US</span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mt-2">
-              Denver's Premier Mobile Detailing
+              Denver Metro's Premier Mobile Detailing
             </h1>
           </div>
         </div>
@@ -119,16 +119,14 @@ const About: React.FC = () => {
                 key={idx}
                 className={`grid grid-cols-1 lg:grid-cols-3 gap-8 items-start ${idx % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}
               >
-                {/* Avatar/Icon */}
+                {/* Photo */}
                 <div className={`flex justify-center ${idx % 2 === 1 ? 'lg:order-2' : ''}`}>
-                  <div 
-                    className="w-48 h-48 md:w-56 md:h-56 rounded-full flex items-center justify-center shadow-2xl"
-                    style={{ backgroundColor: idx === 0 ? '#18AEE4' : idx === 1 ? '#f59e0b' : '#6b7280' }}
-                  >
-                    <div className="text-center text-white">
-                      <Users className="w-16 h-16 mx-auto mb-2 opacity-80" />
-                      <p className="text-sm font-medium opacity-90">{member.role}</p>
-                    </div>
+                  <div className="w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden shadow-2xl border-4" style={{ borderColor: idx === 0 ? '#18AEE4' : idx === 1 ? '#f59e0b' : '#6b7280' }}>
+                    <img 
+                      src={member.image} 
+                      alt={member.name}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                 </div>
 

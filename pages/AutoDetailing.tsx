@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { CheckCircle, Shield, ArrowRight, Phone, Sparkles, Car, Droplets, Wind } from 'lucide-react';
+import { CheckCircle, Shield, Clock, ArrowRight, Phone, Sparkles, Droplets, Sun, Car, Wind } from 'lucide-react';
 import SEO from '../components/SEO';
+import RelatedServices from '../components/RelatedServices';
 
 const AutoDetailing: React.FC = () => {
   const benefits = [
@@ -79,10 +80,21 @@ const AutoDetailing: React.FC = () => {
   return (
     <>
       <SEO
-        title="Auto Detailing Denver | Professional Car Detailing Services"
-        description="Professional auto detailing in Denver. Interior and exterior detailing, paint correction, ceramic coating prep. Mobile detailing available. Free quotes."
-        keywords="auto detailing Denver, car detailing Denver, interior detailing, exterior detailing, paint correction, mobile detailing"
-        canonical="https://example.com/auto-detailing"
+        title="Auto Detailing Denver Metro | Interior & Exterior Detail | Splash Mobile Detail"
+        description="Professional auto detailing in Denver Metro. Interior deep cleaning, exterior polish, and complete vehicle restoration. Mobile service available. Free quotes."
+        keywords="auto detailing Denver, car detailing Parker CO, interior detailing, exterior detailing, mobile detailing Denver"
+        canonical="https://splashmobiledetail.com/auto-detailing"
+        serviceSchema={{
+          name: "Auto Detailing",
+          description: "Professional interior and exterior auto detailing services including deep cleaning, polishing, and complete vehicle restoration.",
+          url: "https://splashmobiledetail.com/auto-detailing",
+          image: "https://splashmobiledetail.com/services/interior-detailing.jpg"
+        }}
+        breadcrumbs={[
+          { name: "Home", url: "https://splashmobiledetail.com/" },
+          { name: "Services", url: "https://splashmobiledetail.com/services" },
+          { name: "Auto Detailing", url: "https://splashmobiledetail.com/auto-detailing" }
+        ]}
       />
       <section className="py-24 bg-white px-4 md:px-16">
         <div className="max-w-7xl mx-auto">
@@ -91,13 +103,13 @@ const AutoDetailing: React.FC = () => {
         <div className="mb-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <span className="text-blue-900 font-bold tracking-wider text-sm uppercase">AUTO DETAILING</span>
+              <span className="font-bold tracking-wider text-sm uppercase" style={{ color: '#18AEE4' }}>INTERIOR DETAILING & STEAM CLEANING</span>
               <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mt-4 mb-6">
-                Professional Auto Detailing | Restore Your Vehicle's Beauty
+                Interior & Exterior Auto Detailing Services
               </h1>
               <div className="w-20 h-1 bg-yellow-500 mb-6"></div>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Experience the difference professional detailing makes. Our expert technicians use premium products and proven techniques to restore your vehicle to showroom condition, inside and out.
+                A clean interior isn't just about appearances—it's about comfort and pride. Our professional car detailing service tackles stubborn stains, lingering smells, and even the toughest grime in carpets, seats, and the engine bay. From Castle Rock to Greenwood Village, we bring convenience and quality to your driveway or office.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link to="/contact" className="bg-blue-900 hover:bg-blue-800 text-white font-bold py-4 px-8 rounded-xl transition-all transform hover:scale-105 shadow-lg flex items-center justify-center gap-2 group">
@@ -113,7 +125,7 @@ const AutoDetailing: React.FC = () => {
             <div className="relative">
               <div className="overflow-hidden h-[500px] md:h-[600px] rounded-2xl shadow-2xl">
                 <img 
-                  src="/xpel_files/Dry-Apply-Installation-Photography.jpg" 
+                  src="/services/interior-detailing.jpg" 
                   alt="Professional Auto Detailing in Denver" 
                   className="w-full h-full object-cover"
                   loading="lazy"
@@ -263,10 +275,10 @@ const AutoDetailing: React.FC = () => {
         {/* CTA Section */}
         <div className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-2xl p-12 md:p-16 text-center">
           <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Ready for a Fresh, Clean Vehicle?
+            Restore Your Car With Interior And Exterior Auto Detailing
           </h3>
           <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-            Contact us today for a free quote. Experience the difference professional detailing makes.
+            Give us a call and let us assess your vehicle and help you determine whether it's time for a full interior detailing service.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/contact" className="bg-blue-900 hover:bg-blue-800 text-white font-bold py-4 px-8 rounded-xl transition-all transform hover:scale-105 shadow-lg flex items-center justify-center gap-2 group">
@@ -279,6 +291,8 @@ const AutoDetailing: React.FC = () => {
             </a>
           </div>
         </div>
+
+        <RelatedServices currentService="Auto Detailing" />
 
         </div>
       </section>

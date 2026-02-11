@@ -71,10 +71,13 @@ const Categories: React.FC = () => {
           <div className="flex gap-6 px-2" style={{ minWidth: 'max-content' }}>
         {CATEGORIES.map((cat) => {
               const linkMap: Record<string, string> = {
-                'paint-protection-film': '/paint-protection-film',
+                'auto-detailing': '/auto-detailing',
                 'ceramic-coatings': '/ceramic-coatings',
-                'window-tinting': '/window-tinting',
-                'vehicle-wraps': '/vehicle-wraps'
+                'headlight-restoration': '/headlight-restoration',
+                'gasoline-spills': '/gasoline-spills',
+                'vomit-removal': '/vomit-removal',
+                'sale-prep': '/sale-prep',
+                'pet-cleanup': '/pet-cleanup'
               };
 
           const content = (

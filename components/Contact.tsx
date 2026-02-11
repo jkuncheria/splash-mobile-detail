@@ -81,7 +81,7 @@ const Contact: React.FC<ContactProps> = ({ simplified = false }) => {
       const submissionData: Record<string, any> = {
         name: formData.name,
         email: formData.email,
-        clientId: 'RL-QLJ7CW4Y',
+        clientId: 'RL-WAWTG568',
         projectType: projectTypeMap[formData.inquiryType] || formData.inquiryType,
         inquiryType: formData.inquiryType,
       };
@@ -166,7 +166,7 @@ const Contact: React.FC<ContactProps> = ({ simplified = false }) => {
 
               <div className="space-y-6">
                 <a href="tel:9706186183" className="group flex items-start p-4 rounded-xl hover:bg-blue-50 transition-all duration-300 border border-transparent hover:border-blue-100">
-                  <div className="bg-gradient-to-br from-blue-900 to-blue-800 p-4 rounded-xl mr-4 group-hover:scale-110 transition-transform shadow-md">
+                  <div className="p-4 rounded-xl mr-4 group-hover:scale-110 transition-transform shadow-md" style={{ backgroundColor: '#18AEE4' }}>
                     <Phone className="w-6 h-6 text-white" />
                   </div>
                   <div className="flex-1">
@@ -177,7 +177,7 @@ const Contact: React.FC<ContactProps> = ({ simplified = false }) => {
                 </a>
 
                 <a href="mailto:eugene@splashmobiledetail.com" className="group flex items-start p-4 rounded-xl hover:bg-blue-50 transition-all duration-300 border border-transparent hover:border-blue-100">
-                  <div className="bg-gradient-to-br from-blue-900 to-blue-800 p-4 rounded-xl mr-4 group-hover:scale-110 transition-transform shadow-md flex-shrink-0">
+                  <div className="p-4 rounded-xl mr-4 group-hover:scale-110 transition-transform shadow-md flex-shrink-0" style={{ backgroundColor: '#18AEE4' }}>
                     <Mail className="w-6 h-6 text-white" />
                   </div>
                   <div className="flex-1 min-w-0">
@@ -188,7 +188,7 @@ const Contact: React.FC<ContactProps> = ({ simplified = false }) => {
                 </a>
 
                 <a href="#" target="_blank" rel="noopener noreferrer" className="group flex items-start p-4 rounded-xl hover:bg-blue-50 transition-all duration-300 border border-transparent hover:border-blue-100">
-                  <div className="bg-gradient-to-br from-blue-900 to-blue-800 p-4 rounded-xl mr-4 group-hover:scale-110 transition-transform shadow-md">
+                  <div className="p-4 rounded-xl mr-4 group-hover:scale-110 transition-transform shadow-md" style={{ backgroundColor: '#18AEE4' }}>
                     <MapPin className="w-6 h-6 text-white" />
                   </div>
                   <div className="flex-1">
@@ -342,7 +342,7 @@ const Contact: React.FC<ContactProps> = ({ simplified = false }) => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-blue-900 to-blue-800 hover:from-blue-800 hover:to-blue-700 disabled:from-gray-400 disabled:to-gray-500 disabled:cursor-not-allowed text-white font-bold py-4 px-8 rounded-xl transition-all transform hover:scale-[1.02] shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group"
+                className="w-full text-white font-bold py-4 px-8 rounded-xl transition-all transform hover:scale-[1.02] shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group disabled:opacity-50 disabled:cursor-not-allowed" style={{ backgroundColor: '#18AEE4' }}
               >
                 {isSubmitting ? (
                   <>
@@ -415,53 +415,7 @@ const Contact: React.FC<ContactProps> = ({ simplified = false }) => {
           </div>
         </div>
 
-            {/* Social Media & Additional Info */}
-            <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="bg-gradient-to-br from-blue-900 to-blue-800 rounded-2xl p-8 text-white text-center">
-                <div className="bg-white bg-opacity-20 p-4 rounded-full inline-flex mb-4">
-                  <Calendar className="w-8 h-8" />
-                </div>
-                <h3 className="text-xl font-bold mb-3">Schedule a Consultation</h3>
-                <p className="text-blue-100 mb-4 text-sm">
-                  Book a free consultation to discuss your vehicle protection needs and get expert recommendations.
-                </p>
-                <button className="bg-white text-blue-900 hover:bg-gray-100 font-bold py-2 px-6 rounded-lg transition-all">
-                  Book Now
-                </button>
-              </div>
-
-              <div className="bg-gradient-to-br from-blue-900 to-blue-800 rounded-2xl p-8 text-white text-center">
-                <div className="bg-white bg-opacity-20 p-4 rounded-full inline-flex mb-4">
-                  <Users className="w-8 h-8" />
-                </div>
-                <h3 className="text-xl font-bold mb-3">Join Our Community</h3>
-                <p className="text-blue-100 mb-4 text-sm">
-                  Follow us on social media for auto care tips, special offers, and project showcases.
-                </p>
-                <div className="flex justify-center gap-3">
-                  <a href="https://www.facebook.com/HMConstructionaz/" target="_blank" rel="noopener noreferrer" className="bg-white bg-opacity-20 hover:bg-opacity-30 p-2 rounded-lg transition-all">
-                    <Facebook className="w-5 h-5" />
-                  </a>
-                  <a href="https://www.instagram.com/hmconstructionaz/" target="_blank" rel="noopener noreferrer" className="bg-white bg-opacity-20 hover:bg-opacity-30 p-2 rounded-lg transition-all">
-                    <Instagram className="w-5 h-5" />
-                  </a>
-                </div>
-              </div>
-
-              <div className="bg-gradient-to-br from-blue-900 to-blue-800 rounded-2xl p-8 text-white text-center">
-                <div className="bg-white bg-opacity-20 p-4 rounded-full inline-flex mb-4">
-                  <Phone className="w-8 h-8" />
-                </div>
-                <h3 className="text-xl font-bold mb-3">Need Immediate Help?</h3>
-                <p className="text-blue-100 mb-4 text-sm">
-                  Call us directly for urgent questions or to speak with an auto protection specialist right away.
-                </p>
-                <a href="tel:9706186183" className="bg-white text-blue-900 hover:bg-gray-100 font-bold py-2 px-6 rounded-lg transition-all inline-block">
-                  (970) 618-6183
-                </a>
-              </div>
-            </div>
-          </>
+                      </>
         )}
 
       </div>

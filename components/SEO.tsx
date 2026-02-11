@@ -1,4 +1,17 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
+
+interface ServiceSchema {
+  name: string;
+  description: string;
+  url: string;
+  image?: string;
+  areaServed?: string;
+}
+
+interface BreadcrumbItem {
+  name: string;
+  url: string;
+}
 
 interface SEOProps {
   title: string;
@@ -6,6 +19,8 @@ interface SEOProps {
   keywords?: string;
   canonical?: string;
   ogImage?: string;
+  serviceSchema?: ServiceSchema;
+  breadcrumbs?: BreadcrumbItem[];
 }
 
 const SEO: React.FC<SEOProps> = ({ 
@@ -13,7 +28,9 @@ const SEO: React.FC<SEOProps> = ({
   description, 
   keywords, 
   canonical,
-  ogImage = '/hmlogo.png'
+  ogImage = '/splashlogo.png',
+  serviceSchema,
+  breadcrumbs
 }) => {
   useEffect(() => {
     // Update document title
@@ -71,7 +88,7 @@ const SEO: React.FC<SEOProps> = ({
 
     updateOGTag('og:title', title);
     updateOGTag('og:description', description);
-    updateOGTag('og:image', `https://hmconstruction.com${ogImage}`);
+    updateOGTag('og:image', `https://splashmobiledetail.com${ogImage}`);
     if (canonical) {
       updateOGTag('og:url', canonical);
     }
@@ -91,8 +108,66 @@ const SEO: React.FC<SEOProps> = ({
 
     updateTwitterTag('twitter:title', title);
     updateTwitterTag('twitter:description', description);
-    updateTwitterTag('twitter:image', `https://hmconstruction.com${ogImage}`);
-  }, [title, description, keywords, canonical, ogImage]);
+    updateTwitterTag('twitter:image', `https://splashmobiledetail.com${ogImage}`);
+
+    // Add Service Schema if provided
+    if (serviceSchema) {
+      const existingSchema = document.querySelector('script[data-schema="service"]');
+      if (existingSchema) {
+        existingSchema.remove();
+      }
+
+      const schemaScript = document.createElement('script');
+      schemaScript.type = 'application/ld+json';
+      schemaScript.setAttribute('data-schema', 'service');
+      schemaScript.textContent = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": serviceSchema.name,
+        "description": serviceSchema.description,
+        "url": serviceSchema.url,
+        "image": serviceSchema.image || `https://splashmobiledetail.com${ogImage}`,
+        "provider": {
+          "@type": "LocalBusiness",
+          "name": "Splash Mobile Detail",
+          "telephone": "970-618-6183",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "18941 E. Plaza Drive",
+            "addressLocality": "Parker",
+            "addressRegion": "CO",
+            "postalCode": "80134",
+            "addressCountry": "US"
+          }
+        },
+        "areaServed": serviceSchema.areaServed || "Denver Metro Area"
+      });
+      document.head.appendChild(schemaScript);
+    }
+
+    // Add Breadcrumb Schema if provided
+    if (breadcrumbs && breadcrumbs.length > 0) {
+      const existingBreadcrumb = document.querySelector('script[data-schema="breadcrumb"]');
+      if (existingBreadcrumb) {
+        existingBreadcrumb.remove();
+      }
+
+      const breadcrumbScript = document.createElement('script');
+      breadcrumbScript.type = 'application/ld+json';
+      breadcrumbScript.setAttribute('data-schema', 'breadcrumb');
+      breadcrumbScript.textContent = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": breadcrumbs.map((item, index) => ({
+          "@type": "ListItem",
+          "position": index + 1,
+          "name": item.name,
+          "item": item.url
+        }))
+      });
+      document.head.appendChild(breadcrumbScript);
+    }
+  }, [title, description, keywords, canonical, ogImage, serviceSchema, breadcrumbs]);
 
   return null;
 };

@@ -205,7 +205,7 @@ const Testimonials: React.FC = () => {
         <div className="text-center mb-16">
           <span className="font-bold tracking-wider text-sm uppercase" style={{ color: '#18AEE4' }}>WHAT OUR CUSTOMERS SAY</span>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-4 mb-5">
-            Trusted by Thousands of Happy Customers
+            Trusted by Hundreds of Happy Customers
           </h2>
           <div className="w-20 h-1 bg-yellow-500 mx-auto mb-6"></div>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">

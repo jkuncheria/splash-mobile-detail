@@ -197,17 +197,7 @@ const OurStory: React.FC = () => {
 
         </div>
 
-        {/* Quote/Highlight Box */}
-        <div className="relative z-10 rounded-3xl p-8 md:p-12 text-center shadow-2xl overflow-hidden" style={{ backgroundColor: '#18AEE4' }}>
-          <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
-          <div className="absolute bottom-0 left-0 w-48 h-48 bg-white opacity-5 rounded-full translate-y-1/2 -translate-x-1/2"></div>
-          <Star className="w-16 h-16 text-yellow-400 mx-auto mb-6" />
-          <p className="text-2xl md:text-3xl text-white font-bold leading-relaxed max-w-3xl mx-auto">
-            "Splash may not be the cheapest shop in town, but their professionalism, ability for great customer service, and their integrity is second to none."
-          </p>
-          <p className="text-white/70 mt-6 text-lg font-medium">— The common theme from our reviews</p>
-        </div>
-
+        
       </div>
     </section>
   );

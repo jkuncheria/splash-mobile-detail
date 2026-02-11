@@ -4,7 +4,7 @@ import { Shield, Sparkles, Clock, Award, Car, Palette, Sun, Film } from 'lucide-
 
 export const NAV_ITEMS: NavItem[] = [
   { label: 'Interior Car Detailing', href: '/auto-detailing' },
-  { label: 'Headlight Restoration', href: '/paint-correction' },
+  { label: 'Headlight Restoration', href: '/headlight-restoration' },
   { label: 'Ceramic Coating', href: '/ceramic-coatings' },
   { 
     label: 'ALL SERVICES', 
@@ -12,14 +12,12 @@ export const NAV_ITEMS: NavItem[] = [
     subItems: [
       { label: 'All Services', href: '/services' },
       { label: 'Interior Car Detailing', href: '/auto-detailing' },
-      { label: 'Headlight Restoration', href: '/paint-correction' },
+      { label: 'Headlight Restoration', href: '/headlight-restoration' },
       { label: 'Ceramic Coating', href: '/ceramic-coatings' },
-      { label: 'Paint Protection Film', href: '/paint-protection-film' },
-      { label: 'Vehicle Wraps', href: '/vehicle-wraps' },
-      { label: 'Window Tinting', href: '/window-tinting' },
-      { label: 'Interior Protection', href: '/interior-protection' },
-      { label: 'Wheel & Caliper', href: '/wheel-caliper' },
-      { label: 'Paint Correction', href: '/paint-correction' },
+      { label: 'Gasoline Spill Cleanup', href: '/gasoline-spills' },
+      { label: 'Vomit Removal', href: '/vomit-removal' },
+      { label: 'Sale Prep', href: '/sale-prep' },
+      { label: 'Pet Cleanup', href: '/pet-cleanup' },
     ]
   },
   { label: 'Gallery', href: '/gallery' },
@@ -35,10 +33,13 @@ export const NAV_ITEMS: NavItem[] = [
 ];
 
 export const CATEGORIES: Category[] = [
-  { id: 'paint-protection-film', name: 'Paint Protection Film', image: '/xpel_files/2020-Chevy-Corvette-C8-Full-Front-ULTIMATE-PLUS-PPF-4.jpg' },
-  { id: 'ceramic-coatings', name: 'Ceramic Coatings', image: '/xpel_files/Las-Vegas-Install-Day-2-55.jpg' },
-  { id: 'window-tinting', name: 'Window Tinting', image: '/xpel_files/2023-Tesla-Model-Y-Grey-Black-HTX-XRP-WC-17-png.jpg' },
-  { id: 'vehicle-wraps', name: 'Vehicle Wraps', image: '/xpel_files/2024-Ford-Raptor-R-Windshield-Protection-Film-4-png.jpg' },
+  { id: 'auto-detailing', name: 'Interior Detailing & Steam Cleaning', image: '/services/interior-detailing.jpg' },
+  { id: 'headlight-restoration', name: 'Headlight Restoration', image: '/services/headlight-restoration.jpg' },
+  { id: 'ceramic-coatings', name: 'Ceramic Coating And Waxing', image: '/services/ceramic-coating.jpg' },
+  { id: 'gasoline-spills', name: 'Gasoline Spill Cleanup', image: '/gas-spill.png' },
+  { id: 'vomit-removal', name: 'Vomit Removal', image: '/vomit.png' },
+  { id: 'sale-prep', name: 'Sale Prep', image: '/showroom1.png' },
+  { id: 'pet-cleanup', name: 'Pet Cleanup', image: '/showroom2.png' },
 ];
 
 export const DIFFERENCE_FEATURES: Feature[] = [

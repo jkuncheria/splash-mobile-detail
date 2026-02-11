@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { CheckCircle, Shield, Clock, ArrowRight, Phone, Sparkles, Droplets, Sun } from 'lucide-react';
 import SEO from '../components/SEO';
+import RelatedServices from '../components/RelatedServices';
 
 const CeramicCoatings: React.FC = () => {
   const benefits = [
@@ -67,7 +68,18 @@ const CeramicCoatings: React.FC = () => {
         title="Ceramic Coating Denver | Professional Auto Ceramic Coating"
         description="Professional ceramic coating services in Denver. Ceramic Pro, Gtechniq, IGL certified installers. Long-lasting paint protection with incredible gloss. Free quotes."
         keywords="ceramic coating Denver, auto ceramic coating, Ceramic Pro Denver, paint protection coating, nano ceramic coating, car coating Denver"
-        canonical="https://example.com/ceramic-coatings"
+        canonical="https://splashmobiledetail.com/ceramic-coatings"
+        serviceSchema={{
+          name: "Ceramic Coating",
+          description: "Professional ceramic coating services providing long-lasting paint protection with incredible gloss and hydrophobic properties.",
+          url: "https://splashmobiledetail.com/ceramic-coatings",
+          image: "https://splashmobiledetail.com/services/ceramic-coating.jpg"
+        }}
+        breadcrumbs={[
+          { name: "Home", url: "https://splashmobiledetail.com/" },
+          { name: "Services", url: "https://splashmobiledetail.com/services" },
+          { name: "Ceramic Coating", url: "https://splashmobiledetail.com/ceramic-coatings" }
+        ]}
       />
       <section className="py-24 bg-white px-4 md:px-16">
         <div className="max-w-7xl mx-auto">
@@ -76,13 +88,13 @@ const CeramicCoatings: React.FC = () => {
         <div className="mb-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <span className="text-blue-900 font-bold tracking-wider text-sm uppercase">CERAMIC COATINGS</span>
+              <span className="font-bold tracking-wider text-sm uppercase" style={{ color: '#18AEE4' }}>CERAMIC COATING AND WAXING</span>
               <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mt-4 mb-6">
                 Professional Ceramic Coating | Ultimate Shine & Protection
               </h1>
               <div className="w-20 h-1 bg-yellow-500 mb-6"></div>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Transform your vehicle with professional-grade ceramic coating. Our nano-ceramic technology creates a permanent, hydrophobic layer that protects your paint while delivering an unmatched deep gloss finish.
+                Protect your vehicle's paint with a ceramic coating that adds a durable layer of protection against tree sap, UV rays, and swirl marks. This service enhances your car's resale value and gives it a brilliant shine that lasts. Whether you're maintaining your car or preparing to sell it, we offer mobile car convenience and professional results.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link to="/contact" className="bg-blue-900 hover:bg-blue-800 text-white font-bold py-4 px-8 rounded-xl transition-all transform hover:scale-105 shadow-lg flex items-center justify-center gap-2 group">
@@ -98,7 +110,7 @@ const CeramicCoatings: React.FC = () => {
             <div className="relative">
               <div className="overflow-hidden h-[500px] md:h-[600px] rounded-2xl shadow-2xl">
                 <img 
-                  src="/xpel_files/Las-Vegas-Install-Day-2-55.jpg" 
+                  src="/services/ceramic-coating.jpg" 
                   alt="Ceramic Coating Application in Denver" 
                   className="w-full h-full object-cover"
                   loading="lazy"
@@ -254,6 +266,8 @@ const CeramicCoatings: React.FC = () => {
             </a>
           </div>
         </div>
+
+        <RelatedServices currentService="Ceramic Coating" />
 
         </div>
       </section>

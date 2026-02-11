@@ -11,7 +11,15 @@
     { "source": "/projects", "destination": "/gallery", "permanent": true },
     { "source": "/projects/", "destination": "/gallery", "permanent": true },
     { "source": "/testimonials", "destination": "/#testimonials", "permanent": true },
-    { "source": "/testimonials/", "destination": "/#testimonials", "permanent": true }
+    { "source": "/testimonials/", "destination": "/#testimonials", "permanent": true },
+    { "source": "/promotions", "destination": "/contact", "permanent": true },
+    { "source": "/promotions/", "destination": "/contact", "permanent": true },
+        { "source": "/before-after", "destination": "/gallery", "permanent": true },
+    { "source": "/before-after/", "destination": "/gallery", "permanent": true },
+    { "source": "/interior-car-detail", "destination": "/auto-detailing", "permanent": true },
+    { "source": "/interior-car-detail/", "destination": "/auto-detailing", "permanent": true },
+    { "source": "/who-we-are", "destination": "/about", "permanent": true },
+    { "source": "/who-we-are/", "destination": "/about", "permanent": true }
   ],
   "rewrites": [
     {

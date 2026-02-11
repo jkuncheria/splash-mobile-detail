@@ -8,20 +8,22 @@ import Inspiration from '../components/Inspiration';
 import Testimonials from '../components/Testimonials';
 import OurStory from '../components/OurStory';
 import Contact from '../components/Contact';
+import WhiteGloveService from '../components/WhiteGloveService';
+import CTABanner from '../components/CTABanner';
 
 const Home: React.FC = () => {
   return (
     <>
       <Hero />
+      <Contact simplified={true} />
       {/* <ClientBanner /> */}
       <Categories />
       <AboutHome />
-      <OurStory />
-
-      {/* <Inspiration /> */}
+      <WhiteGloveService />
       <Testimonials />
-      <Contact simplified={true} />
-      <Difference />
+      <OurStory />
+      <CTABanner />
+      {/* <Inspiration /> */}
     </>
   );
 };

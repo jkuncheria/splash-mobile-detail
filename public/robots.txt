@@ -2,5 +2,5 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-Sitemap: https://hmconstruction.com/sitemap.xml
+Sitemap: https://splashmobiledetail.com/sitemap.xml
 
