@@ -40,9 +40,9 @@ const VomitRemoval: React.FC = () => {
   return (
     <>
       <SEO
-        title="Vomit Removal & Cleanup Denver Metro | Car Interior Cleaning | Splash Mobile Detail"
-        description="Professional vomit removal and cleanup in Denver Metro. Complete odor elimination, sanitization, and stain removal. Fast service. Free quotes."
-        keywords="vomit removal car Denver, car sick cleanup, interior sanitization, odor removal Parker CO"
+        title="Vomit Removal & Cleanup Parker CO | Car Interior Cleaning | Splash Mobile Detail"
+        description="Professional vomit removal and cleanup serving Denver to Castle Rock and Golden to Bennett. Complete odor elimination, sanitization, and stain removal. We service Denver, Arapahoe, Jefferson, Douglas, and Elbert Counties."
+        keywords="vomit removal car Parker CO, car sick cleanup Castle Rock, interior sanitization Colorado, odor removal, Arapahoe County vomit cleanup"
         canonical="https://splashmobiledetail.com/vomit-removal"
         serviceSchema={{
           name: "Vomit Removal",

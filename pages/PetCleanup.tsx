@@ -42,9 +42,9 @@ const PetCleanup: React.FC = () => {
   return (
     <>
       <SEO
-        title="Pet Cleanup & Hair Removal Denver Metro | Car Detailing | Splash Mobile Detail"
-        description="Professional pet cleanup and hair removal in Denver Metro. Remove pet odors, stains, and hair from your car. Complete sanitization. Free quotes."
-        keywords="pet hair removal car Denver, dog hair cleaning, pet odor removal, car detailing pets Parker CO"
+        title="Pet Cleanup & Hair Removal Parker CO | Car Detailing | Splash Mobile Detail"
+        description="Professional pet cleanup and hair removal serving Denver to Castle Rock and Golden to Bennett. Remove pet odors, stains, and hair from your car. We service Denver, Arapahoe, Jefferson, Douglas, and Elbert Counties."
+        keywords="pet hair removal car Parker CO, dog hair cleaning Castle Rock, pet odor removal Colorado, car detailing pets, Arapahoe County pet cleanup"
         canonical="https://splashmobiledetail.com/pet-cleanup"
         serviceSchema={{
           name: "Pet Cleanup",

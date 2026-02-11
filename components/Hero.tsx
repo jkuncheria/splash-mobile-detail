@@ -1,27 +1,36 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 const Hero: React.FC = () => {
-  const scrollToProducts = () => {
-    const productsSection = document.getElementById('our-products');
-    if (productsSection) {
-      productsSection.scrollIntoView({ behavior: 'smooth' });
+  const [videoLoaded, setVideoLoaded] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      video.load();
     }
-  };
+  }, []);
 
   return (
     <section className="relative w-full h-[700px] md:h-[800px] bg-gray-900 overflow-hidden">
-      {/* Background Video - cropped bottom */}
+      {/* Dark background placeholder while video loads */}
+      <div 
+        className={`absolute inset-0 w-full h-[120%] bg-gray-900 transition-opacity duration-500 ${videoLoaded ? 'opacity-0' : 'opacity-100'}`}
+      />
+      
+      {/* Background Video - loads in background */}
       <video
+        ref={videoRef}
         autoPlay
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-[120%] object-cover object-top"
+        preload="auto"
+        onCanPlayThrough={() => setVideoLoaded(true)}
+        className={`absolute inset-0 w-full h-[120%] object-cover object-top transition-opacity duration-500 ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
       >
         <source src="/autoherovideo.mp4" type="video/mp4" />
-        {/* Fallback for browsers that don't support video */}
-        Your browser does not support the video tag.
       </video>
       
       {/* Content Overlay */}
@@ -41,13 +50,13 @@ const Hero: React.FC = () => {
             to="/contact"
             className="font-bold py-3 px-8 rounded shadow-lg transition transform hover:scale-105 text-white" style={{ backgroundColor: '#18AEE4' }}
           >
-            GET QUOTE
+            GET FREE QUOTE
           </Link>
           <a 
             href="tel:9706186183"
             className="bg-white hover:bg-gray-100 font-bold py-3 px-8 rounded shadow-lg transition transform hover:scale-105 text-center" style={{ color: '#18AEE4' }}
           >
-            CALL TODAY
+            CALL US
           </a>
         </div>
       </div>

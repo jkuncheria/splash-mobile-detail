@@ -19,7 +19,7 @@ const FAQ: React.FC = () => {
         },
         {
           question: 'What areas do you serve?',
-          answer: 'We serve the Denver Metro Area including Parker, Castle Rock, Bennett, Highlands Ranch, Lakewood, and surrounding communities. Our state-of-the-art facility is located in Parker, Colorado. Contact us to confirm if we service your specific area!'
+          answer: 'We serve Denver to Castle Rock and Golden to Bennett. We service Denver, Arapahoe, Jefferson, Douglas, and Elbert Counties! Our state-of-the-art facility is located in Parker, Colorado. Contact us to confirm if we service your specific area!'
         },
         {
           question: 'Do you still offer mobile detailing services?',

@@ -65,9 +65,9 @@ const CeramicCoatings: React.FC = () => {
   return (
     <>
       <SEO
-        title="Ceramic Coating Denver | Professional Auto Ceramic Coating"
-        description="Professional ceramic coating services in Denver. Ceramic Pro, Gtechniq, IGL certified installers. Long-lasting paint protection with incredible gloss. Free quotes."
-        keywords="ceramic coating Denver, auto ceramic coating, Ceramic Pro Denver, paint protection coating, nano ceramic coating, car coating Denver"
+        title="Ceramic Coating Parker CO | Professional Auto Ceramic Coating Colorado"
+        description="Professional ceramic coating services serving Denver to Castle Rock and Golden to Bennett. Long-lasting paint protection with incredible gloss. We service Denver, Arapahoe, Jefferson, Douglas, and Elbert Counties."
+        keywords="ceramic coating Parker CO, auto ceramic coating Castle Rock, paint protection coating Colorado, nano ceramic coating, Arapahoe County ceramic coating, Douglas County car coating"
         canonical="https://splashmobiledetail.com/ceramic-coatings"
         serviceSchema={{
           name: "Ceramic Coating",

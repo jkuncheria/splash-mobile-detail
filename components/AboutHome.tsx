@@ -13,7 +13,7 @@ const AboutHome: React.FC = () => {
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <img 
                 src="/showroom2.png" 
-                alt="Professional Auto Detailing and Paint Protection Services in Denver, Colorado" 
+                alt="Professional Auto Detailing - Serving Denver, Arapahoe, Jefferson, Douglas, and Elbert Counties" 
                 className="w-full h-auto object-cover"
                 loading="lazy"
               />
@@ -28,7 +28,7 @@ const AboutHome: React.FC = () => {
               You Deserve A Car That Looks As Great As The Day You Bought It
             </h2>
             <p className="text-lg text-gray-700 mb-4 leading-relaxed">
-              Your car doesn't have to be old to feel old. Just like you, your vehicle deserves the best. That's why we offer white-glove mobile detailing services in the Denver Metro area. So you can look and feel your best every time you buckle up.
+              Your car doesn't have to be old to feel old. Just like you, your vehicle deserves the best. That's why we offer white-glove mobile detailing services from Denver to Castle Rock and Golden to Bennett. So you can look and feel your best every time you buckle up.
             </p>
             
             <div className="bg-blue-50 rounded-xl p-6 mb-6">

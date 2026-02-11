@@ -80,9 +80,9 @@ const AutoDetailing: React.FC = () => {
   return (
     <>
       <SEO
-        title="Auto Detailing Denver Metro | Interior & Exterior Detail | Splash Mobile Detail"
-        description="Professional auto detailing in Denver Metro. Interior deep cleaning, exterior polish, and complete vehicle restoration. Mobile service available. Free quotes."
-        keywords="auto detailing Denver, car detailing Parker CO, interior detailing, exterior detailing, mobile detailing Denver"
+        title="Auto Detailing Parker CO | Interior & Exterior Detail | Splash Mobile Detail"
+        description="Professional auto detailing serving Denver to Castle Rock and Golden to Bennett. Interior deep cleaning, exterior polish, and complete vehicle restoration. We service Denver, Arapahoe, Jefferson, Douglas, and Elbert Counties."
+        keywords="auto detailing Parker CO, car detailing Castle Rock, interior detailing Denver, exterior detailing, mobile detailing Colorado, Arapahoe County detailing, Douglas County car detail"
         canonical="https://splashmobiledetail.com/auto-detailing"
         serviceSchema={{
           name: "Auto Detailing",

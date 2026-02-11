@@ -140,7 +140,7 @@ const SEO: React.FC<SEOProps> = ({
             "addressCountry": "US"
           }
         },
-        "areaServed": serviceSchema.areaServed || "Denver Metro Area"
+        "areaServed": serviceSchema.areaServed || "Denver, Arapahoe, Jefferson, Douglas, and Elbert Counties"
       });
       document.head.appendChild(schemaScript);
     }

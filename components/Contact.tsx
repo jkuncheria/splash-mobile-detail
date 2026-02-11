@@ -187,19 +187,19 @@ const Contact: React.FC<ContactProps> = ({ simplified = false }) => {
                   </div>
                 </a>
 
-                <a href="#" target="_blank" rel="noopener noreferrer" className="group flex items-start p-4 rounded-xl hover:bg-blue-50 transition-all duration-300 border border-transparent hover:border-blue-100">
+                <div className="group flex items-start p-4 rounded-xl hover:bg-blue-50 transition-all duration-300 border border-transparent hover:border-blue-100">
                   <div className="p-4 rounded-xl mr-4 group-hover:scale-110 transition-transform shadow-md" style={{ backgroundColor: '#18AEE4' }}>
                     <MapPin className="w-6 h-6 text-white" />
                   </div>
                   <div className="flex-1">
                     <h4 className="font-bold text-gray-900 mb-1 group-hover:text-blue-900 transition-colors">Service Area</h4>
-                    <p className="text-gray-700 font-semibold">Denver Metro Area</p>
-                    <p className="text-gray-700 font-semibold">Mobile Detailing Services</p>
-                    <p className="text-sm text-blue-900 mt-1 font-semibold group-hover:underline">
-                      Contact Us →
+                    <p className="text-gray-700 font-semibold">Denver to Castle Rock</p>
+                    <p className="text-gray-700 font-semibold">Golden to Bennett</p>
+                    <p className="text-sm text-gray-500 mt-1">
+                      Denver, Arapahoe, Jefferson, Douglas & Elbert Counties
                     </p>
                   </div>
-                </a>
+                </div>
               </div>
             </div>
           </div>
@@ -373,16 +373,35 @@ const Contact: React.FC<ContactProps> = ({ simplified = false }) => {
               <h3 className="text-2xl font-bold text-gray-900">Shop Hours</h3>
             </div>
             <div className="space-y-4">
-              <div className="bg-blue-50 rounded-lg p-3 mb-4">
-                <p className="font-semibold text-blue-900">Available</p>
-                <p className="text-gray-700">By Appointment</p>
-              </div>
-              <div className="flex justify-between items-center py-3 border-b border-gray-100">
-                <span className="font-semibold text-gray-900">Monday - Sunday</span>
-                <span className="text-gray-600">By Appointment</span>
-              </div>
-              <div className="pt-3 border-t border-gray-100">
-                <p className="text-xs text-gray-500 italic">We work around your schedule. Call for availability.</p>
+              <div className="space-y-2">
+                <div className="flex justify-between items-center py-2 border-b border-gray-100">
+                  <span className="font-semibold text-gray-900">Monday</span>
+                  <span className="text-gray-600">8 AM – 5 PM</span>
+                </div>
+                <div className="flex justify-between items-center py-2 border-b border-gray-100">
+                  <span className="font-semibold text-gray-900">Tuesday</span>
+                  <span className="text-gray-600">8 AM – 5 PM</span>
+                </div>
+                <div className="flex justify-between items-center py-2 border-b border-gray-100">
+                  <span className="font-semibold text-gray-900">Wednesday</span>
+                  <span className="text-gray-600">8 AM – 5 PM</span>
+                </div>
+                <div className="flex justify-between items-center py-2 border-b border-gray-100">
+                  <span className="font-semibold text-gray-900">Thursday</span>
+                  <span className="text-gray-600">8 AM – 5 PM</span>
+                </div>
+                <div className="flex justify-between items-center py-2 border-b border-gray-100">
+                  <span className="font-semibold text-gray-900">Friday</span>
+                  <span className="text-gray-600">8 AM – 5 PM</span>
+                </div>
+                <div className="flex justify-between items-center py-2 border-b border-gray-100">
+                  <span className="font-semibold text-gray-900">Saturday</span>
+                  <span className="text-gray-600">8 AM – 5 PM</span>
+                </div>
+                <div className="flex justify-between items-center py-2">
+                  <span className="font-semibold text-gray-900">Sunday</span>
+                  <span className="text-gray-600">Closed</span>
+                </div>
               </div>
             </div>
           </div>
@@ -397,12 +416,12 @@ const Contact: React.FC<ContactProps> = ({ simplified = false }) => {
             <div className="space-y-4">
               <div>
                 <p className="text-gray-600 mb-2">We Serve</p>
-                <p className="text-gray-900 font-semibold">Denver, Colorado</p>
-                <p className="text-gray-900 font-semibold">and Surrounding Areas</p>
+                <p className="text-gray-900 font-semibold">Denver to Castle Rock</p>
+                <p className="text-gray-900 font-semibold">Golden to Bennett</p>
               </div>
               <div className="pt-4 border-t border-gray-100">
                 <p className="text-gray-600 mb-4">
-                  We provide professional auto detailing and protection services for all vehicle types. Contact us to discuss your needs.
+                  We service Denver, Arapahoe, Jefferson, Douglas, and Elbert Counties. Contact us to discuss your needs.
                 </p>
                 <a 
                   href="/contact" 

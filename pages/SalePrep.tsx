@@ -42,9 +42,9 @@ const SalePrep: React.FC = () => {
   return (
     <>
       <SEO
-        title="Sale Prep Detailing Denver Metro | Sell Your Car for More | Splash Mobile Detail"
-        description="Professional sale prep detailing in Denver Metro. Get your car ready to sell for top dollar. Complete interior and exterior detailing. Free quotes."
-        keywords="sale prep detailing Denver, sell car detailing, pre-sale car cleaning, car detailing before selling Parker CO"
+        title="Sale Prep Detailing Parker CO | Sell Your Car for More | Splash Mobile Detail"
+        description="Professional sale prep detailing serving Denver to Castle Rock and Golden to Bennett. Get your car ready to sell for top dollar. We service Denver, Arapahoe, Jefferson, Douglas, and Elbert Counties."
+        keywords="sale prep detailing Parker CO, sell car detailing Castle Rock, pre-sale car cleaning Colorado, car detailing before selling, Arapahoe County sale prep"
         canonical="https://splashmobiledetail.com/sale-prep"
         serviceSchema={{
           name: "Sale Prep Detailing",

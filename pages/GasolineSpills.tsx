@@ -40,9 +40,9 @@ const GasolineSpills: React.FC = () => {
   return (
     <>
       <SEO
-        title="Gasoline Spill Cleanup Denver Metro | Car Interior Cleaning | Splash Mobile Detail"
-        description="Professional gasoline spill cleanup in Denver Metro. Remove gas odors and stains from your car interior. Fast, safe, and thorough service. Free quotes."
-        keywords="gasoline spill cleanup Denver, gas smell removal car, fuel spill cleaning, car interior cleaning Parker CO"
+        title="Gasoline Spill Cleanup Parker CO | Car Interior Cleaning | Splash Mobile Detail"
+        description="Professional gasoline spill cleanup serving Denver to Castle Rock and Golden to Bennett. Remove gas odors and stains from your car interior. We service Denver, Arapahoe, Jefferson, Douglas, and Elbert Counties."
+        keywords="gasoline spill cleanup Parker CO, gas smell removal car Castle Rock, fuel spill cleaning Colorado, car interior cleaning, Arapahoe County gas spill cleanup"
         canonical="https://splashmobiledetail.com/gasoline-spills"
         serviceSchema={{
           name: "Gasoline Spill Cleanup",

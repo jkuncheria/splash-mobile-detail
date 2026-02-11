@@ -49,9 +49,9 @@ const HeadlightRestoration: React.FC = () => {
   return (
     <>
       <SEO
-        title="Headlight Restoration Denver | Clear Headlights | Splash Mobile Detail"
-        description="Professional headlight restoration in Denver Metro. Remove yellowing, haze, and oxidation. Improve visibility and appearance. UV-resistant sealant included. Free quotes."
-        keywords="headlight restoration Denver, foggy headlights, yellowed headlights, headlight cleaning Parker CO"
+        title="Headlight Restoration Parker CO | Clear Headlights | Splash Mobile Detail"
+        description="Professional headlight restoration serving Denver to Castle Rock and Golden to Bennett. Remove yellowing, haze, and oxidation. We service Denver, Arapahoe, Jefferson, Douglas, and Elbert Counties."
+        keywords="headlight restoration Parker CO, foggy headlights Castle Rock, yellowed headlights, headlight cleaning Colorado, Arapahoe County headlight restoration"
         canonical="https://splashmobiledetail.com/headlight-restoration"
         serviceSchema={{
           name: "Headlight Restoration",

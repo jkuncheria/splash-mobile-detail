@@ -12,7 +12,7 @@ const WhiteGloveService: React.FC = () => {
           <div>
             <span className="font-bold tracking-wider text-sm uppercase" style={{ color: '#18AEE4' }}>"Home of the Showroom Quality Detail"</span>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-3 mb-6 leading-tight">
-              Get All The Benefits Of Denver Mobile Auto Detailing
+              Get All The Benefits Of Mobile Auto Detailing
             </h2>
             <p className="text-lg text-gray-700 mb-6 leading-relaxed">
               Our Splash van was normally used for going to people's houses and working on jobs. Today the Splash van's primary use is doing something we call white-glove pickup and deliveries.
@@ -61,7 +61,7 @@ const WhiteGloveService: React.FC = () => {
           <div className="relative rounded-2xl overflow-hidden shadow-2xl">
             <img 
               src="/showroom1.png" 
-              alt="White-Glove Mobile Auto Detailing Service in Denver Metro" 
+              alt="White-Glove Mobile Auto Detailing Service - Denver to Castle Rock, Golden to Bennett" 
               className="w-full h-auto object-cover"
               loading="lazy"
             />

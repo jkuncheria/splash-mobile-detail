@@ -29,7 +29,7 @@ const Footer: React.FC = () => {
             <div className="text-sm text-gray-600 mb-4 space-y-1">
               <p><a href="tel:9706186183" className="hover:text-[#18AEE4]">(970) 618-6183</a></p>
               <p><a href="mailto:eugene@splashmobiledetail.com" className="hover:text-[#18AEE4]">eugene@splashmobiledetail.com</a></p>
-              <p className="mt-2">18233 Lincoln Meadows Pkwy<br />Unit 108, Parker, CO 80134</p>
+              <p className="mt-2">18941 E. Plaza Drive<br />Parker, CO 80134</p>
             </div>
             <div className="flex space-x-4">
               <a href="https://www.facebook.com/profile.php?id=100039871526095" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#18AEE4] transition-colors"><Facebook className="w-5 h-5"/></a>
@@ -103,13 +103,10 @@ const Footer: React.FC = () => {
            {/* Hours */}
            <div>
             <h4 className="font-bold text-gray-900 mb-4 uppercase text-sm tracking-wider">Hours</h4>
-            <div className="text-sm text-gray-600 space-y-2">
-              <p className="font-semibold text-gray-900">Available</p>
-              <p>Monday - Sunday</p>
-              <div className="pt-2 space-y-1">
-                <p>By Appointment</p>
-                <p className="text-xs text-gray-500 mt-2">We work around your schedule. Call for availability.</p>
-              </div>
+            <div className="text-sm text-gray-600 space-y-1">
+              <div className="flex justify-between"><span>Mon - Sat</span><span>8 AM – 5 PM</span></div>
+              <div className="flex justify-between"><span>Sunday</span><span>Closed</span></div>
+              <p className="text-xs text-gray-500 mt-3">Denver to Castle Rock • Golden to Bennett</p>
             </div>
           </div>
 
