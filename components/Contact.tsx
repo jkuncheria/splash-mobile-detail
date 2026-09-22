@@ -11,7 +11,8 @@ const Contact: React.FC<ContactProps> = ({ simplified = false }) => {
     email: '',
     phone: '',
     inquiryType: 'general',
-    message: ''
+    message: '',
+    smsOptIn: false
   });
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -77,7 +78,7 @@ const Contact: React.FC<ContactProps> = ({ simplified = false }) => {
         'other': 'Other'
       };
 
-      // Prepare submission data
+      // Prepare submission data for RenoLens
       const submissionData: Record<string, any> = {
         name: formData.name,
         email: formData.email,
@@ -94,18 +95,63 @@ const Contact: React.FC<ContactProps> = ({ simplified = false }) => {
         submissionData.message = formData.message;
       }
 
-      // Submit to RenoLens API
-      const response = await fetch('https://www.renolens.com/api/contact-form', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(submissionData),
-      });
+      // Submit to RenoLens API first so we know the spam verdict before
+      // deciding whether to forward to the CRM.
+      //
+      // If RenoLens is unreachable we fail OPEN: `filtered` stays false and the
+      // submission still goes to GoHighLevel. An occasional spam text is a far
+      // better failure than a lost job.
+      let result: { filtered?: boolean } = {};
+      let renoLensOk = true;
+      try {
+        const response = await fetch('https://www.renolens.com/api/contact-form', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(submissionData),
+        });
 
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        throw new Error(errorData.message || `Server error: ${response.status}`);
+        if (!response.ok) {
+          throw new Error(`Server error: ${response.status}`);
+        }
+
+        result = await response.json().catch(() => ({}));
+      } catch (renoLensError) {
+        renoLensOk = false;
+        console.error('RenoLens submission failed, forwarding to CRM anyway:', renoLensError);
+      }
+
+      // Only forward to GoHighLevel if RenoLens didn't score this as spam.
+      // GHL texts the owner on every submission, so calling it unconditionally
+      // means junk still reaches their phone even when the email is blocked.
+      let ghlOk = false;
+      if (!result.filtered) {
+        try {
+          await fetch('/api/contact-webhook', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              name: formData.name,
+              email: formData.email,
+              phone: formData.phone || '',
+              inquiryType: projectTypeMap[formData.inquiryType] || formData.inquiryType,
+              message: formData.message || '',
+              smsOptIn: formData.smsOptIn,
+            }),
+          });
+          ghlOk = true;
+        } catch (ghlError) {
+          // Log but don't fail - the lead is already recorded with RenoLens.
+          console.error('Error sending to GHL:', ghlError);
+        }
+      }
+
+      // Only tell the customer something went wrong if nothing received it.
+      if (!renoLensOk && !ghlOk) {
+        throw new Error('Submission failed');
       }
 
       // Success
@@ -117,7 +163,8 @@ const Contact: React.FC<ContactProps> = ({ simplified = false }) => {
         email: '',
         phone: '',
         inquiryType: 'general',
-        message: ''
+        message: '',
+        smsOptIn: false
       });
 
       // Reset success message after 5 seconds
@@ -165,13 +212,13 @@ const Contact: React.FC<ContactProps> = ({ simplified = false }) => {
               </p>
 
               <div className="space-y-6">
-                <a href="tel:9706186183" className="group flex items-start p-4 rounded-xl hover:bg-blue-50 transition-all duration-300 border border-transparent hover:border-blue-100">
+                <a href="tel:8337629441" className="group flex items-start p-4 rounded-xl hover:bg-blue-50 transition-all duration-300 border border-transparent hover:border-blue-100">
                   <div className="p-4 rounded-xl mr-4 group-hover:scale-110 transition-transform shadow-md" style={{ backgroundColor: '#18AEE4' }}>
                     <Phone className="w-6 h-6 text-white" />
                   </div>
                   <div className="flex-1">
                     <h4 className="font-bold text-gray-900 mb-1 group-hover:text-blue-900 transition-colors">Phone</h4>
-                    <p className="text-gray-700 font-semibold text-lg">(970) 618-6183</p>
+                    <p className="text-gray-700 font-semibold text-lg">(833) 762-9441</p>
                     <p className="text-sm text-gray-500 mt-1">Call for Free Quote</p>
                   </div>
                 </a>
@@ -192,11 +239,11 @@ const Contact: React.FC<ContactProps> = ({ simplified = false }) => {
                     <MapPin className="w-6 h-6 text-white" />
                   </div>
                   <div className="flex-1">
-                    <h4 className="font-bold text-gray-900 mb-1 group-hover:text-blue-900 transition-colors">Service Area</h4>
-                    <p className="text-gray-700 font-semibold">Denver to Castle Rock</p>
-                    <p className="text-gray-700 font-semibold">Golden to Bennett</p>
+                    <h4 className="font-bold text-gray-900 mb-1 group-hover:text-blue-900 transition-colors">Location</h4>
+                    <p className="text-gray-700 font-semibold">18233 Lincoln Meadows Pkwy</p>
+                    <p className="text-gray-700 font-semibold">Unit 108, Parker, CO 80134</p>
                     <p className="text-sm text-gray-500 mt-1">
-                      Denver, Arapahoe, Jefferson, Douglas & Elbert Counties
+                      Serving Denver, Arapahoe, Jefferson, Douglas & Elbert Counties
                     </p>
                   </div>
                 </div>
@@ -317,6 +364,25 @@ const Contact: React.FC<ContactProps> = ({ simplified = false }) => {
                   className="w-full border-2 border-gray-200 rounded-xl px-5 py-3.5 focus:outline-none focus:border-blue-900 focus:ring-4 focus:ring-blue-900 focus:ring-opacity-10 transition-all resize-none bg-gray-50 focus:bg-white"
                   placeholder="Tell us about your vehicle, the services you're interested in, or any questions you have..."
                 ></textarea>
+              </div>
+
+              {/* SMS Opt-in Checkbox */}
+              <div className="mb-6">
+                <label className="flex items-start gap-3 cursor-pointer group">
+                  <input
+                    type="checkbox"
+                    name="smsOptIn"
+                    checked={formData.smsOptIn}
+                    onChange={(e) => setFormData({ ...formData, smsOptIn: e.target.checked })}
+                    className="mt-1 w-5 h-5 rounded border-2 border-gray-300 text-[#18AEE4] focus:ring-[#18AEE4] focus:ring-offset-0 cursor-pointer"
+                  />
+                  <span className="text-sm text-gray-600 leading-relaxed">
+                    I agree to receive SMS/text messages from Splash Mobile Detail for appointment confirmations, reminders, and service updates. Message frequency varies. Message and data rates may apply. Reply STOP to unsubscribe. View our{' '}
+                    <a href="/privacy-policy" className="text-[#18AEE4] hover:underline font-medium">Privacy Policy</a>
+                    {' '}and{' '}
+                    <a href="/terms-of-service" className="text-[#18AEE4] hover:underline font-medium">Terms of Service</a>.
+                  </span>
+                </label>
               </div>
 
               {/* Success/Error Messages */}
