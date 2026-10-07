@@ -1,5 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Star, Quote } from 'lucide-react';
+import GoogleReviewsFeed from './GoogleReviewsFeed';
+import reviewsData from '../data/reviews.json';
 
 interface Testimonial {
   id: number;
@@ -214,12 +216,9 @@ const Testimonials: React.FC = () => {
         </div>
 
         {/* Elfsight Widget Container */}
-        <div 
-          ref={widgetRef}
-          className="elfsight-app-83f4b1a4-a178-415c-a0c8-81d85128acbb" 
-          data-elfsight-app-lazy
-          style={{ minHeight: showFallback ? '0' : '400px' }}
-        ></div>
+        <div ref={widgetRef}>
+          <GoogleReviewsFeed data={reviewsData} accent="#2563eb" />
+        </div>
 
         {/* Fallback Testimonials - Show if widget doesn't load */}
         {showFallback && renderFallbackTestimonials()}
@@ -229,4 +228,3 @@ const Testimonials: React.FC = () => {
 };
 
 export default Testimonials;
-
